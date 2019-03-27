@@ -1,0 +1,44 @@
+---
+title       : MTCars Model Builder
+subtitle    : Developing Data Products - Course Project
+author      : Joris Vroegop
+framework   : io2012      
+highlighter : highlight.js
+hitheme     : monokai
+mode        : selfcontained
+knit        : slidify::knit2slides
+--- .quote
+
+<q> This MTCars Model Builder allows you to see various relationships with MPG.</q>
+
+---
+  
+## Data
+
+We use the following variables from the `mtcars` dataset:
+
+```{r, echo = T}
+data("mtcars")
+head(mtcars[,c("mpg", "wt", "hp", "disp", "qsec")])
+```
+
+---
+
+## Goal
+
+The Shiny app let's use see the relationship between a chosen variable and `mpg` (miles per gallon). For example horsepower `hp` vs `mpg`:
+
+```{r fig1, echo = T,  fig.align = "center", fig.asp = .75}
+plot(mtcars[,c("hp", "mpg")], pch = 16)
+abline(lm(mtcars[,"mpg"] ~ mtcars[,"hp"]), col="blue", lwd=2)
+```
+
+---
+
+
+## GitHub repo
+
+See my GitHub repo for the ui.R and server.R files: 
+https://github.com/jorisvroegop/MTCars_model_builder
+---
+
